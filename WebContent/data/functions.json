@@ -1,0 +1,53 @@
+{
+    "success":true,
+    "children":[
+        {
+            "id":"1",
+            "text":"Hello World",
+            "expanded":false,
+            "children":[
+                { "id": "101", "text": "表单居中显示", "value": "navigationfirstcenterform", "type": "1", "leaf": true },
+                { "id": "102", "text": "用户列表", "value": "sysuserquerygrid", "type": "1", "leaf": true },
+                { "id": "103", "text": "统筹列表", "value": "sysdivisionquerygrid", "type": "1", "leaf": true },
+                { "id": "104", "text": "功能列表", "value": "sysfunctionquerygrid", "type": "1", "leaf": true },
+                { "id": "105", "text": "统筹列表(缓存)", "value": "sysdivisionbufquerygrid", "type": "1", "leaf": true },
+                { "id": "106", "text": "统筹列表(树)", "value": "sysdivisionquerytree", "type": "1", "leaf": true },
+                { "id": "107", "text": "baseformwidget", "value": "managerbaseform", "type": "1", "leaf": true },
+                { "id": "110", "text": "用户查询", "value": "baseformcentertest", "type": "1", "leaf": true },
+                {
+                    "id":"8",
+                    "text":"其他业务",
+                    "expanded":false,
+                    "children":[
+                        { "id": "10", "text": "百度", "value": "http://www.baidu.com", "type": "0", "leaf": true },
+                        { "id": "11", "text": "腾讯", "value": "http://www.qq.com", "type": "0", "leaf": true },
+                        { "id": "12", "text": "谷歌", "value": "http://www.google.com.hk", "type": "0", "leaf": true },
+                        { "id": "13", "text": "禅意花园", "value": "http://www.csszengarden.com", "type": "0", "leaf": true },
+                        { "id": "14", "text": "Extjs4", "value": "http://127.3.3.3/ext-4.2.1", "type": "0", "leaf": true },
+                        { "id": "15", "text": "Extjs4", "value": ".do?pageModel=ok", "type": "0", "leaf": true },
+                    ],
+                    "leaf":false
+                },{
+                    "id":"999",
+                    "text":"系统管理",
+                    "expanded":false,
+                    "children":[
+                        { "id": "911", "text": "功能管理", "value": "functionmanagerpanel", "type": "1", "leaf": true } ,
+                        { "id": "902", "text": "用户管理", "value": "sysuserquerygrid", "type": "1", "leaf": true }  ,
+                        { "id": "903", "text": "角色管理", "value": "sysuserquerygrid", "type": "1", "leaf": true } ,
+                        { "id": "904", "text": "行政区划", "value": "sysuserquerygrid", "type": "1", "leaf": true }
+                    ]
+                }
+            ],
+            "leaf":false
+        },{
+            "id":"2",
+            "text":"new",
+            "leaf":false,
+            "expanded":false,
+            "children":[
+            ]
+        },
+        { "id": "1911", "text": "功能管理", "value": "functionmanagerpanel", "type": "1", "leaf": true } 
+    ]
+}

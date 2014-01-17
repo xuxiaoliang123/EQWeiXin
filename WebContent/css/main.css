@@ -1,0 +1,80 @@
+*{font-family:'Courier New','微软雅黑',Tahoma,arial,verdana,sans-serif;font-size:13px;font-weight:normal;!important;}
+#headerDiv{
+    background-color: #ccc;
+}
+#headerDiv > img{
+    height: 100%;
+    width:100%;
+}
+#headerList{
+    position: absolute;
+    left: 600px;
+    bottom:0px;
+}
+#headerList li{
+    float: left;
+    list-style: none;
+}
+#headerList li img{
+    vertical-align: middle;
+}
+#headerList li a{
+    color:#000000;
+    text-decoration: none;
+    display: block;
+    height: 15px;
+    text-align: center;
+    width: 80px;
+    /*background-color: #ececec;*/
+    margin-left: 2px;
+    font-family:'华文中宋','微软雅黑',Tahoma,arial,verdana,sans-serif;
+    font-weight: bolder;
+}
+#headerList li:first-child a{
+    width: 150px;
+}
+#headerList li a:hover{
+    background-color: #bbbbbb;
+    color: blue;
+}
+.indexbackground
+{
+    background:#e6f4fc url(../img/mainbg.jpg) bottom center no-repeat;
+}
+
+.yw-stepzero {color: #006600; }
+.yw-stepzerobgcolor {background-color: #006600;}
+.yw-stepone {color: #CC0000; }
+.yw-steponebgcolor {background-color: #CC0000; }
+.yw-steptwo {color: #CC0000; }
+.yw-steptwobgcolor {background-color: #CC0000;}
+.yw-stepthree {color: #000099; }
+.yw-stepthreebgcolor {background-color: #000099; }
+.yw-change {color: #aa0099; }
+.yw-changebgcolor {background-color: #aa0099; }
+.yw-logout {color: darkslategrey; }
+.yw-logoutbgcolor {background-color: darkslategrey; }
+.yw-block{
+    height: 14px;
+}
+.yw-block > div{
+    width: 12px;
+    height: 12px;
+    float: left;
+}
+.yw-block > span{
+    line-height:14px;
+    font-family: 'Courier New','华文中宋';
+    display: block;
+    float: left;
+}
+.panelsetcenter{
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.tbarbtnover{
+    background-color: #5EB44A;
+    color:darkgreen;
+}
+
