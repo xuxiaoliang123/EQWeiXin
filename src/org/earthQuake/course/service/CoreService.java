@@ -61,6 +61,7 @@ public class CoreService {
 				if(EarthQuakeUtil.isQqFace(content)) {
 					respContent = content;
 				}
+				 
 				
 				if(content.equals("1")){
 					respContent = "正在查询全球24小时内的地震信息";
