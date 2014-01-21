@@ -35,7 +35,7 @@ Ext.application({
 
     ],
     controllers: [
-         'Navigation','Manager','GroupSend'
+         'Navigation','Manager','GroupSend','EarthquakeKnowledge'
     ],
 
     launch: function() {

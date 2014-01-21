@@ -19,6 +19,6 @@ Ext.define('ZSMZJ.controller.GroupSend',{
         'groupsend.ContentForm'
     ],
     init:function(){
-        console.log(this)
+
     }
 })

@@ -38,7 +38,6 @@ Ext.define('ZSMZJ.controller.Manager',{
         'manager.sysDivisionQueryGrid'
     ],
     init:function(){
-        console.log("thise")
         this.control({
             'sysuserquerygrid,sysdivisionquerygrid,sysfunctionquerygrid,sysdivisionbufquerygrid':{
                 render:function(c){
