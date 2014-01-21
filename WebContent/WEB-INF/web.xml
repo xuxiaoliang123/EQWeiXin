@@ -16,8 +16,21 @@
 			org.earthQuake.course.servlet.CoreServlet
 		</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>Rain</servlet-name>
+    <servlet-class>
+        com.faraway.jet.framework.sysmanager.Rain
+		</servlet-class>
+  </servlet>
+
   <servlet-mapping>
     <servlet-name>coreServlet</servlet-name>
     <url-pattern>/coreServlet</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Rain</servlet-name>
+    <url-pattern>/rain.do</url-pattern>
+  </servlet-mapping>
+
+
 </web-app>
