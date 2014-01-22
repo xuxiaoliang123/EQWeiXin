@@ -18,8 +18,8 @@ Ext.define('ZSMZJ.view.navigation.BasicTrees', {
         Ext.apply(this,{
             loadMask:{msg:'加载中...'},
             rootVisible:false,
-            store: 'navigation.BasicTrees',
-            //store: 'navigation.FunctionTrees',
+            //store: 'navigation.BasicTrees',
+            store: 'navigation.FunctionTrees',
             listeners: {
                 //itemclick: function(){ console.log('click el'); }
             }

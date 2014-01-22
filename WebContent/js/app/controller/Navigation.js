@@ -29,7 +29,14 @@ Ext.define('ZSMZJ.controller.Navigation', {
 
     },
 
+    closetab:function(value){
+        var tabs = Ext.getCmp('mainContent-panel');
+        var tab=tabs.getComponent(value);
+        if (tab) {
+            tab.close();
+        }
 
+    },
     showtab:function(label,value,type,objdata){
         if(ViewWaitMask){
             try{
