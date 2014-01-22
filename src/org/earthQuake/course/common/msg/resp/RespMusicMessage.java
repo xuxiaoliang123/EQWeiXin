@@ -1,13 +1,13 @@
 package org.earthQuake.course.common.msg.resp;
 
 /**
- * ÒôÀÖÏûÏ¢
+ * éŸ³ä¹æ¶ˆæ¯
  * 
  * @author xuxiaoliang
  * @date 2014-01-06
  */
 public class RespMusicMessage extends RespBaseMessage {
-	// ÒôÀÖ
+	// éŸ³ä¹
 	private Music Music;
 
 	public Music getMusic() {

@@ -1,7 +1,7 @@
 package org.earthQuake.course.common.bean;
 
 /**
- * ²Ëµ¥»ùÀà
+ * èœå•åŸºç±»
  * 
  * @author xuxiaoliang
  * @date 2014-01-14
@@ -10,13 +10,13 @@ package org.earthQuake.course.common.bean;
 public class TabMenuDetail implements java.io.Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	//²Ëµ¥ID
+	//èœå•ID
 	private int menuId;
-	//²Ëµ¥ËµÃ÷
+	//èœå•è¯´æ˜
 	private String menuexplain;
-	//²Ëµ¥ÄÚÈİ
+	//èœå•å†…å®¹
 	private String menuContent;
-	//²Ëµ¥ÏîÊÇ·ñÆôÓÃµÄ×´Ì¬
+	//èœå•é¡¹æ˜¯å¦å¯ç”¨çš„çŠ¶æ€
 	private int status;
 	
 	/** default constructor */

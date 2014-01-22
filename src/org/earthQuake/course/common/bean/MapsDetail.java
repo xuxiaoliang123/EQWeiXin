@@ -3,29 +3,29 @@ package org.earthQuake.course.common.bean;
 import java.util.Date;
 
 /**
- * 地图图片基类
+ * 鍦板浘鍥剧墖鍩虹被
  * @author xuxiaoliang
  * @date 2014-01-19
  */
 public class MapsDetail {
 
-	//地图ID
+	//鍦板浘ID
 	private int mapid;
-	//图片
+	//鍥剧墖
 	private String image;
-	//时间
+	//鏃堕棿
 	private Date time;
-	//地点
+	//鍦扮偣
 	private String address;
-	//经度
+	//缁忓害
 	private int longitude;
-	//纬度
+	//绾害
 	private int latitude;
-	//震级
+	//闇囩骇
 	private int magnitude;
-	//震中烈度
+	//闇囦腑鐑堝害
 	private int intensity;
-	//震源深度
+	//闇囨簮娣卞害
 	private double depth;
 	
 	/**

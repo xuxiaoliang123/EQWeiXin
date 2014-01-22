@@ -14,7 +14,7 @@ public class MenuDaoImpl extends BaseDao implements MenuDao{
 
 	public Logger log = LoggerFactory.getLogger(MenuDaoImpl.class);
 	/**
-	 * µÃµ½²Ëµ¥
+	 * å¾—åˆ°èœå•
 	 * @return
 	 */
 	public List<TabMenuDetail> getMenus() {

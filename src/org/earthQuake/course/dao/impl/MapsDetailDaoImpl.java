@@ -1,7 +1,6 @@
 package org.earthQuake.course.dao.impl;
 
 import java.util.List;
-
 import org.earthQuake.course.common.bean.MapsDetail;
 import org.earthQuake.course.dao.BaseDao;
 import org.earthQuake.course.dao.MapsDetailDao;

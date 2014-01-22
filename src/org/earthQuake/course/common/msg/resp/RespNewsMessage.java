@@ -3,15 +3,15 @@ package org.earthQuake.course.common.msg.resp;
 import java.util.List;
 
 /**
- * ÎÄ±¾ÏûÏ¢
+ * æ–‡æœ¬æ¶ˆæ¯
  * 
  * @author xuxiaoliang
  * @date 2014-01-06
  */
 public class RespNewsMessage extends RespBaseMessage {
-	// Í¼ÎÄÏûÏ¢¸öÊı£¬ÏŞÖÆÎª10ÌõÒÔÄÚ
+	// å›¾æ–‡æ¶ˆæ¯ä¸ªæ•°ï¼Œé™åˆ¶ä¸º10æ¡ä»¥å†…
 	private int ArticleCount;
-	// ¶àÌõÍ¼ÎÄÏûÏ¢ĞÅÏ¢£¬Ä¬ÈÏµÚÒ»¸öitemÎª´óÍ¼
+	// å¤šæ¡å›¾æ–‡æ¶ˆæ¯ä¿¡æ¯ï¼Œé»˜è®¤ç¬¬ä¸€ä¸ªitemä¸ºå¤§å›¾
 	private List<Article> Articles;
 
 	public int getArticleCount() {

@@ -24,12 +24,12 @@ public class BaseDao {
         try
         {
             session = sessionFactory.getCurrentSession();
-            log.info("Í¨¹ý getCurrentSession() µÃµ½¡£");
+            log.info("é€šè¿‡ getCurrentSession() å¾—åˆ°ã€‚");
         }
         catch(HibernateException ex)
         {           
             session = sessionFactory.openSession();     
-            log.info("Í¨¹ý openSession() µÃµ½¡£");
+            log.info("é€šè¿‡ openSession() å¾—åˆ°ã€‚");
         }
         
         return session;

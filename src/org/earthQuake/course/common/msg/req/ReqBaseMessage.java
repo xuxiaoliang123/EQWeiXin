@@ -1,21 +1,21 @@
 package org.earthQuake.course.common.msg.req;
 
 /**
- * ÏûÏ¢»ùÀà£¨ÆÕÍ¨ÓÃ»§ -> ¹«ÖÚÕÊºÅ£©
+ * æ¶ˆæ¯åŸºç±»ï¼ˆæ™®é€šç”¨æˆ· -> å…¬ä¼—å¸å·ï¼‰
  * 
  * @author xuxiaoliang
  * @date 2014-01-06
  */
 public class ReqBaseMessage {
-	// ¿ª·¢ÕßÎ¢ĞÅºÅ
+	// å¼€å‘è€…å¾®ä¿¡å·
 	private String ToUserName;
-	// ·¢ËÍ·½ÕÊºÅ£¨Ò»¸öOpenID£©
+	// å‘é€æ–¹å¸å·ï¼ˆä¸€ä¸ªOpenIDï¼‰
 	private String FromUserName;
-	// ÏûÏ¢´´½¨Ê±¼ä £¨ÕûĞÍ£©
+	// æ¶ˆæ¯åˆ›å»ºæ—¶é—´ ï¼ˆæ•´å‹ï¼‰
 	private long CreateTime;
-	// ÏûÏ¢ÀàĞÍ£¨text/image/location/link£©
+	// æ¶ˆæ¯ç±»å‹ï¼ˆtext/image/location/linkï¼‰
 	private String MsgType;
-	// ÏûÏ¢id£¬64Î»ÕûĞÍ
+	// æ¶ˆæ¯idï¼Œ64ä½æ•´å‹
 	private long MsgId;
 
 	public String getToUserName() {

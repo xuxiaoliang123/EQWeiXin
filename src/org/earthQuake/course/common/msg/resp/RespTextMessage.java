@@ -1,13 +1,13 @@
 package org.earthQuake.course.common.msg.resp;
 
 /**
- * ÎÄ±¾ÏûÏ¢
+ * æ–‡æœ¬æ¶ˆæ¯
  * 
  * @author xuxiaoliang
  * @date 2014-01-06
  */
 public class RespTextMessage extends RespBaseMessage {
-	// »Ø¸´µÄÏûÏ¢ÄÚÈİ
+	// å›å¤çš„æ¶ˆæ¯å†…å®¹
 	private String Content;
 
 	public String getContent() {

@@ -14,7 +14,7 @@ import org.earthQuake.course.common.msg.resp.RespNewsMessage;
 import org.earthQuake.course.common.msg.resp.RespTextMessage;
 
 /**
- * ºËĞÄ·şÎñÀà
+ * æ ¸å¿ƒæœåŠ¡ç±»
  * 
  * @author xuxiaoliang
  * @date 2014-01-06
@@ -22,7 +22,7 @@ import org.earthQuake.course.common.msg.resp.RespTextMessage;
 public class CoreService {
 	
 	/**
-	 * ´¦ÀíÎ¢ĞÅ·¢À´µÄÇëÇó
+	 * å¤„ç†å¾®ä¿¡å‘æ¥çš„è¯·æ±‚
 	 * 
 	 * @param request
 	 * @return
@@ -31,20 +31,20 @@ public class CoreService {
 		String respMessage = null;
 		HttpSession session = request.getSession();
 		try {
-			// Ä¬ÈÏ·µ»ØµÄÎÄ±¾ÏûÏ¢ÄÚÈİ
-			String respContent = "ÇëÇó´¦ÀíÒì³££¬ÇëÉÔºò³¢ÊÔ£¡";
+			// é»˜è®¤è¿”å›çš„æ–‡æœ¬æ¶ˆæ¯å†…å®¹
+			String respContent = "è¯·æ±‚å¤„ç†å¼‚å¸¸ï¼Œè¯·ç¨å€™å°è¯•ï¼";
 
-			// xmlÇëÇó½âÎö
+			// xmlè¯·æ±‚è§£æ
 			Map<String, String> requestMap = MessageUtil.parseXml(request);
 
-			// ·¢ËÍ·½ÕÊºÅ£¨open_id£©
+			// å‘é€æ–¹å¸å·ï¼ˆopen_idï¼‰
 			String fromUserName = requestMap.get("FromUserName");
-			// ¹«ÖÚÕÊºÅ
+			// å…¬ä¼—å¸å·
 			String toUserName = requestMap.get("ToUserName");
-			// ÏûÏ¢ÀàĞÍ
+			// æ¶ˆæ¯ç±»å‹
 			String msgType = requestMap.get("MsgType");
 
-			// »Ø¸´ÎÄ±¾ÏûÏ¢
+			// å›å¤æ–‡æœ¬æ¶ˆæ¯
 			RespTextMessage textMessage = new RespTextMessage();
 			textMessage.setToUserName(fromUserName);
 			textMessage.setFromUserName(toUserName);
@@ -52,16 +52,16 @@ public class CoreService {
 			textMessage.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_TEXT);
 			textMessage.setFuncFlag(0);
 
-			// ÎÄ±¾ÏûÏ¢
+			// æ–‡æœ¬æ¶ˆæ¯
 			if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_TEXT)) {
-				// ÎÄ±¾ÏûÏ¢ÄÚÈİ
+				// æ–‡æœ¬æ¶ˆæ¯å†…å®¹
 				String content = requestMap.get("Content");
 				
-				// ÅĞ¶ÏÓÃ»§·¢ËÍµÄÊÇ·ñÊÇµ¥¸öQQ±íÇé
+				// åˆ¤æ–­ç”¨æˆ·å‘é€çš„æ˜¯å¦æ˜¯å•ä¸ªQQè¡¨æƒ…
 //				if(EarthQuakeUtil.isQqFace(content)) {
 //					respContent = content;
 //				}
-				// ´´½¨Í¼ÎÄÏûÏ¢
+				// åˆ›å»ºå›¾æ–‡æ¶ˆæ¯
 				RespNewsMessage newsMessage = new RespNewsMessage();
 				newsMessage.setToUserName(fromUserName);
 				newsMessage.setFromUserName(toUserName);
@@ -70,37 +70,37 @@ public class CoreService {
 				newsMessage.setFuncFlag(0);
 
 				List<Article> articleList = new ArrayList<Article>();
-				// µ¥Í¼ÎÄÏûÏ¢
+				// å•å›¾æ–‡æ¶ˆæ¯
 				if ("1".equals(content)) {
 					
 					Article article1 = new Article();
-					article1.setTitle("È«Çò24Ğ¡Ê±ÄÚµÄµØÕğĞÅÏ¢");
+					article1.setTitle("å…¨çƒ24å°æ—¶å†…çš„åœ°éœ‡ä¿¡æ¯");
 					article1.setDescription("");
 					article1.setPicUrl("http://qq370273662.oicp.net/EQWeiXin/images/title.jpg");
 					article1.setUrl("#");
 
 					Article article2 = new Article();
-					article2.setTitle("2014-01-07 02:49:00Ì¨ÍåĞÂ±±ÊĞ¸½½üº£Óò(122.6,25.5)Õğ¼¶£º4.4¼¶ Éî¶È£º216¹«Àï");
+					article2.setTitle("2014-01-07 02:49:00å°æ¹¾æ–°åŒ—å¸‚é™„è¿‘æµ·åŸŸ(122.6,25.5)éœ‡çº§ï¼š4.4çº§ æ·±åº¦ï¼š216å…¬é‡Œ");
 					article2.setDescription("");
 					article2.setPicUrl("http://qq370273662.oicp.net/EQWeiXin/images/1.jpg");
 					article2.setUrl("http://www.baidu.com");
 
 					Article article3 = new Article();
-					article3.setTitle("2014-01-07 02:49:00Ì¨ÍåĞÂ±±ÊĞ¸½½üº£Óò(122.6,25.5)Õğ¼¶£º4.4¼¶ Éî¶È£º216¹«Àï");
+					article3.setTitle("2014-01-07 02:49:00å°æ¹¾æ–°åŒ—å¸‚é™„è¿‘æµ·åŸŸ(122.6,25.5)éœ‡çº§ï¼š4.4çº§ æ·±åº¦ï¼š216å…¬é‡Œ");
 					article3.setDescription("");
 					article3.setPicUrl("http://qq370273662.oicp.net/EQWeiXin/images/2.jpg");
 					article3.setUrl("http://www.baidu.com");
 
 					Article article4 = new Article();
-					article4.setTitle("2014-01-07 02:49:00Ì¨ÍåĞÂ±±ÊĞ¸½½üº£Óò(122.6,25.5)Õğ¼¶£º4.4¼¶ Éî¶È£º216¹«Àï3");
+					article4.setTitle("2014-01-07 02:49:00å°æ¹¾æ–°åŒ—å¸‚é™„è¿‘æµ·åŸŸ(122.6,25.5)éœ‡çº§ï¼š4.4çº§ æ·±åº¦ï¼š216å…¬é‡Œ3");
 					article4.setDescription("");
 					article4.setPicUrl("http://qq370273662.oicp.net/EQWeiXin/images/3.jpg");
 					article4.setUrl("http://www.baidu.com");
 
 					Article article5 = new Article();
-					article5.setTitle("¸ü¶àµØÕğĞÅÏ¢ÇëµÇÂ¼www.xxxx.com");
+					article5.setTitle("æ›´å¤šåœ°éœ‡ä¿¡æ¯è¯·ç™»å½•www.xxxx.com");
 					article5.setDescription("");
-					// ½«Í¼Æ¬ÖÃÎª¿Õ
+					// å°†å›¾ç‰‡ç½®ä¸ºç©º
 					article5.setPicUrl("");
 					article5.setUrl("http://www.baidu.com");
 
@@ -114,49 +114,49 @@ public class CoreService {
 					return respMessage = MessageUtil.newsMessageToXml(newsMessage);
 					
 //					Article article = new Article();
-//					article.setTitle("È«Çò24Ğ¡Ê±ÄÚµÄµØÕğĞÅÏ¢");
-//					article.setDescription("ÕıÔÚ²éÑ¯È«Çò24Ğ¡Ê±ÄÚµÄµØÕğĞÅÏ¢...");
+//					article.setTitle("å…¨çƒ24å°æ—¶å†…çš„åœ°éœ‡ä¿¡æ¯");
+//					article.setDescription("æ­£åœ¨æŸ¥è¯¢å…¨çƒ24å°æ—¶å†…çš„åœ°éœ‡ä¿¡æ¯...");
 //					article.setPicUrl("http://qq370273662.oicp.net/EQWeiXin/images/title.jpg");
 //					article.setUrl("http://www.baidu.com");
 //					articleList.add(article);
-//					// ÉèÖÃÍ¼ÎÄÏûÏ¢¸öÊı
+//					// è®¾ç½®å›¾æ–‡æ¶ˆæ¯ä¸ªæ•°
 //					newsMessage.setArticleCount(articleList.size());
-//					// ÉèÖÃÍ¼ÎÄÏûÏ¢°üº¬µÄÍ¼ÎÄ¼¯ºÏ
+//					// è®¾ç½®å›¾æ–‡æ¶ˆæ¯åŒ…å«çš„å›¾æ–‡é›†åˆ
 //					newsMessage.setArticles(articleList);
-//					// ½«Í¼ÎÄÏûÏ¢¶ÔÏó×ª»»³Éxml×Ö·û´®
+//					// å°†å›¾æ–‡æ¶ˆæ¯å¯¹è±¡è½¬æ¢æˆxmlå­—ç¬¦ä¸²
 //					return respMessage = MessageUtil.newsMessageToXml(newsMessage);
 				}
-				// µ¥Í¼ÎÄÏûÏ¢---²»º¬Í¼Æ¬
+				// å•å›¾æ–‡æ¶ˆæ¯---ä¸å«å›¾ç‰‡
 				else if ("2".equals(content)) {
 					
 					Article article1 = new Article();
-					article1.setTitle("È«Çò48Ğ¡Ê±ÄÚµÄµØÕğĞÅÏ¢");
+					article1.setTitle("å…¨çƒ48å°æ—¶å†…çš„åœ°éœ‡ä¿¡æ¯");
 					article1.setDescription("");
 					article1.setPicUrl("http://qq370273662.oicp.net/EQWeiXin/images/title.jpg");
 					article1.setUrl("#");
 
 					Article article2 = new Article();
-					article2.setTitle("2014-01-07 02:49:00Ì¨Íå¸ßĞÛÊĞ¸½½üº£Óò(122.6,25.5)Õğ¼¶£º4.4¼¶ Éî¶È£º216¹«Àï");
+					article2.setTitle("2014-01-07 02:49:00å°æ¹¾é«˜é›„å¸‚é™„è¿‘æµ·åŸŸ(122.6,25.5)éœ‡çº§ï¼š4.4çº§ æ·±åº¦ï¼š216å…¬é‡Œ");
 					article2.setDescription("");
 					article2.setPicUrl("http://qq370273662.oicp.net/EQWeiXin/images/4.jpg");
 					article2.setUrl("http://www.baidu.com");
 
 					Article article3 = new Article();
-					article3.setTitle("2014-01-07 02:49:00Ì¨Íå¸ßĞÛÊĞ¸½½üº£Óò(122.6,25.5)Õğ¼¶£º4.4¼¶ Éî¶È£º216¹«Àï");
+					article3.setTitle("2014-01-07 02:49:00å°æ¹¾é«˜é›„å¸‚é™„è¿‘æµ·åŸŸ(122.6,25.5)éœ‡çº§ï¼š4.4çº§ æ·±åº¦ï¼š216å…¬é‡Œ");
 					article3.setDescription("");
 					article3.setPicUrl("http://qq370273662.oicp.net/EQWeiXin/images/5.jpg");
 					article3.setUrl("http://www.baidu.com");
 
 					Article article4 = new Article();
-					article4.setTitle("2014-01-07 02:49:00Ì¨Íå¸ßĞÛÊĞ¸½½üº£Óò(122.6,25.5)Õğ¼¶£º4.4¼¶ Éî¶È£º216¹«Àï");
+					article4.setTitle("2014-01-07 02:49:00å°æ¹¾é«˜é›„å¸‚é™„è¿‘æµ·åŸŸ(122.6,25.5)éœ‡çº§ï¼š4.4çº§ æ·±åº¦ï¼š216å…¬é‡Œ");
 					article4.setDescription("");
 					article4.setPicUrl("http://qq370273662.oicp.net/EQWeiXin/images/6.jpg");
 					article4.setUrl("http://www.baidu.com");
 
 					Article article5 = new Article();
-					article5.setTitle("¸ü¶àµØÕğĞÅÏ¢ÇëµÇÂ¼www.xxxx.com");
+					article5.setTitle("æ›´å¤šåœ°éœ‡ä¿¡æ¯è¯·ç™»å½•www.xxxx.com");
 					article5.setDescription("");
-					// ½«Í¼Æ¬ÖÃÎª¿Õ
+					// å°†å›¾ç‰‡ç½®ä¸ºç©º
 					article5.setPicUrl("");
 					article5.setUrl("http://www.baidu.com");
 
@@ -170,11 +170,11 @@ public class CoreService {
 					return respMessage = MessageUtil.newsMessageToXml(newsMessage);
 					
 //					Article article = new Article();
-//					article.setTitle("È«Çò48Ğ¡Ê±ÄÚµÄµØÕğĞÅÏ¢");
-//					// Í¼ÎÄÏûÏ¢ÖĞ¿ÉÒÔÊ¹ÓÃQQ±íÇé¡¢·ûºÅ±íÇé
-//					article.setDescription("µØÕğĞÅÏ¢" + emoji(0x1F6B9)
-//							+ "ÕıÔÚ²éÑ¯È«Çò48Ğ¡Ê±ÄÚµÄµØÕğĞÅÏ¢");
-//					// ½«Í¼Æ¬ÖÃÎª¿Õ
+//					article.setTitle("å…¨çƒ48å°æ—¶å†…çš„åœ°éœ‡ä¿¡æ¯");
+//					// å›¾æ–‡æ¶ˆæ¯ä¸­å¯ä»¥ä½¿ç”¨QQè¡¨æƒ…ã€ç¬¦å·è¡¨æƒ…
+//					article.setDescription("åœ°éœ‡ä¿¡æ¯" + emoji(0x1F6B9)
+//							+ "æ­£åœ¨æŸ¥è¯¢å…¨çƒ48å°æ—¶å†…çš„åœ°éœ‡ä¿¡æ¯");
+//					// å°†å›¾ç‰‡ç½®ä¸ºç©º
 //					article.setPicUrl("");
 //					article.setUrl("http://www.baidu.com");
 //					articleList.add(article);
@@ -182,36 +182,36 @@ public class CoreService {
 //					newsMessage.setArticles(articleList);
 //					return respMessage = MessageUtil.newsMessageToXml(newsMessage);
 				}
-				// ¶àÍ¼ÎÄÏûÏ¢---×îºóÒ»ÌõÏûÏ¢²»º¬Í¼Æ¬
+				// å¤šå›¾æ–‡æ¶ˆæ¯---æœ€åä¸€æ¡æ¶ˆæ¯ä¸å«å›¾ç‰‡
 				else if ("3".equals(content)) {
 					Article article1 = new Article();
-					article1.setTitle("Õã½­µØÕğĞÅÏ¢");
+					article1.setTitle("æµ™æ±Ÿåœ°éœ‡ä¿¡æ¯");
 					article1.setDescription("");
 					article1.setPicUrl("http://qq370273662.oicp.net/EQWeiXin/images/title.jpg");
 					article1.setUrl("#");
 
 					Article article2 = new Article();
-					article2.setTitle("2014-01-07 02:49:00¸£½¨Ê¡ÆÎÌïÊĞ¸½½üº£Óò(122.6,25.5)Õğ¼¶£º4.4¼¶ Éî¶È£º216¹«Àï");
+					article2.setTitle("2014-01-07 02:49:00ç¦å»ºçœè†ç”°å¸‚é™„è¿‘æµ·åŸŸ(122.6,25.5)éœ‡çº§ï¼š4.4çº§ æ·±åº¦ï¼š216å…¬é‡Œ");
 					article2.setDescription("");
 					article2.setPicUrl("http://qq370273662.oicp.net/EQWeiXin/images/7.jpg");
 					article2.setUrl("http://www.baidu.com");
 
 					Article article3 = new Article();
-					article3.setTitle("2014-01-07 02:49:00¸£½¨Ê¡ÆÎÌïÊĞ¸½½üº£Óò(122.6,25.5)Õğ¼¶£º4.4¼¶ Éî¶È£º216¹«Àï");
+					article3.setTitle("2014-01-07 02:49:00ç¦å»ºçœè†ç”°å¸‚é™„è¿‘æµ·åŸŸ(122.6,25.5)éœ‡çº§ï¼š4.4çº§ æ·±åº¦ï¼š216å…¬é‡Œ");
 					article3.setDescription("");
 					article3.setPicUrl("http://qq370273662.oicp.net/EQWeiXin/images/8.jpg");
 					article3.setUrl("http://www.baidu.com");
 
 					Article article4 = new Article();
-					article4.setTitle("2014-01-07 02:49:00¸£½¨Ê¡ÆÎÌïÊĞ¸½½üº£Óò(122.6,25.5)Õğ¼¶£º4.4¼¶ Éî¶È£º216¹«Àï");
+					article4.setTitle("2014-01-07 02:49:00ç¦å»ºçœè†ç”°å¸‚é™„è¿‘æµ·åŸŸ(122.6,25.5)éœ‡çº§ï¼š4.4çº§ æ·±åº¦ï¼š216å…¬é‡Œ");
 					article4.setDescription("");
 					article4.setPicUrl("http://qq370273662.oicp.net/EQWeiXin/images/9.jpg");
 					article4.setUrl("http://www.baidu.com");
 
 					Article article5 = new Article();
-					article5.setTitle("¸ü¶àµØÕğĞÅÏ¢ÇëµÇÂ¼www.xxxx.com");
+					article5.setTitle("æ›´å¤šåœ°éœ‡ä¿¡æ¯è¯·ç™»å½•www.xxxx.com");
 					article5.setDescription("");
-					// ½«Í¼Æ¬ÖÃÎª¿Õ
+					// å°†å›¾ç‰‡ç½®ä¸ºç©º
 					article5.setPicUrl("");
 					article5.setUrl("http://www.baidu.com");
 
@@ -224,20 +224,20 @@ public class CoreService {
 					newsMessage.setArticles(articleList);
 					return respMessage = MessageUtil.newsMessageToXml(newsMessage);
 				}
-				// µØÕğÖªÊ¶¹Ø¼ü×Ö²éÑ¯
+				// åœ°éœ‡çŸ¥è¯†å…³é”®å­—æŸ¥è¯¢
 				else if ("4".equals(content)) {
 					StringBuffer sbf = new StringBuffer();
-					sbf.append("1¡¢Õğ¼¶").append("\n");
-					sbf.append("2¡¢ÁÒ¶È").append("\n");
-					sbf.append("3¡¢µØÕğÇ°Õ÷Õ×").append("\n");
-					sbf.append("4¡¢µØÕğÓ¦¼±´ëÊ©").append("\n");
-					sbf.append("5¡¢ÇÀ¾ÈÖªÊ¶").append("\n");
-					sbf.append("¹Ø¼ü×Ö²éÑ¯(¸ñÊ½ÒÔ4¿ªÍ·¼Ó¹Ø¼ü×ÖĞòºÅ£¬ÀıÈç£º41),ÄúÒª²éÑ¯µÄÊÇ£º").append("\n");
+					sbf.append("1ã€éœ‡çº§").append("\n");
+					sbf.append("2ã€çƒˆåº¦").append("\n");
+					sbf.append("3ã€åœ°éœ‡å‰å¾å…†").append("\n");
+					sbf.append("4ã€åœ°éœ‡åº”æ€¥æªæ–½").append("\n");
+					sbf.append("5ã€æŠ¢æ•‘çŸ¥è¯†").append("\n");
+					sbf.append("å…³é”®å­—æŸ¥è¯¢(æ ¼å¼ä»¥4å¼€å¤´åŠ å…³é”®å­—åºå·ï¼Œä¾‹å¦‚ï¼š41),æ‚¨è¦æŸ¥è¯¢çš„æ˜¯ï¼š").append("\n");
 					respContent = sbf.toString();
 				}
-				// µØÕğÖªÊ¶×ÉÑ¯
+				// åœ°éœ‡çŸ¥è¯†å’¨è¯¢
 				else if ("5".equals(content)) {
-					respContent = "ÖªÊ¶×ÉÑ¯(¸ñÊ½ÒÔ5¿ªÍ·¼Ó²éÑ¯ÄÚÈİ£¬ÀıÈç£º5Õğ¼¶),ÄúÒª²éÑ¯µÄÊÇ£º";
+					respContent = "çŸ¥è¯†å’¨è¯¢(æ ¼å¼ä»¥5å¼€å¤´åŠ æŸ¥è¯¢å†…å®¹ï¼Œä¾‹å¦‚ï¼š5éœ‡çº§),æ‚¨è¦æŸ¥è¯¢çš„æ˜¯ï¼š";
 				}
 				else if(content.equals("0")){
 					respContent = session.getAttribute("menu").toString();
@@ -245,70 +245,70 @@ public class CoreService {
 				else if(content.substring(0,1).equals("4")){
 					String keyword = content.substring(1, content.length());
 					if("1".equals(keyword)){
-						respContent = "Õğ¼¶ÊÇ¡£¡£¡£¡£";
+						respContent = "éœ‡çº§æ˜¯ã€‚ã€‚ã€‚ã€‚";
 					}else if("2".equals(keyword)){
-						respContent = "ÁÒ¶ÈÊÇ¡£¡£¡£¡£";
+						respContent = "çƒˆåº¦æ˜¯ã€‚ã€‚ã€‚ã€‚";
 					}else if("3".equals(keyword)){
-						respContent = "µØÕğÇ°Õ÷Õ×ÊÇ¡£¡£¡£¡£";
+						respContent = "åœ°éœ‡å‰å¾å…†æ˜¯ã€‚ã€‚ã€‚ã€‚";
 					}else if("4".equals(keyword)){
-						respContent = "µØÕğÓ¦¼±´ëÊ©ÊÇ¡£¡£¡£¡£";
+						respContent = "åœ°éœ‡åº”æ€¥æªæ–½æ˜¯ã€‚ã€‚ã€‚ã€‚";
 					}else if("5".equals(keyword)){
-						respContent = "ÇÀ¾ÈÖªÊ¶ÊÇ¡£¡£¡£¡£";
+						respContent = "æŠ¢æ•‘çŸ¥è¯†æ˜¯ã€‚ã€‚ã€‚ã€‚";
 					}
 				}
 				else if(content.substring(0,1).equals("5")){
 					String keyword = content.substring(1, content.length());
-						respContent = keyword + "µØÕğÖªÊ¶²éÑ¯¡£¡£¡£¡£";
+						respContent = keyword + "åœ°éœ‡çŸ¥è¯†æŸ¥è¯¢ã€‚ã€‚ã€‚ã€‚";
 				}
 				else{
-					respContent = "ÄúµÄÊäÈëÓĞÎó£¬ÇëÈ·±£ÊäÈëÕıÈ·µÄ²Ëµ¥Ñ¡Ïî£¡";
+					respContent = "æ‚¨çš„è¾“å…¥æœ‰è¯¯ï¼Œè¯·ç¡®ä¿è¾“å…¥æ­£ç¡®çš„èœå•é€‰é¡¹ï¼";
 				}
 				
 //				if(content.equals("1")){
-//					respContent = "ÕıÔÚ²éÑ¯È«Çò24Ğ¡Ê±ÄÚµÄµØÕğĞÅÏ¢";
+//					respContent = "æ­£åœ¨æŸ¥è¯¢å…¨çƒ24å°æ—¶å†…çš„åœ°éœ‡ä¿¡æ¯";
 //				}else if(content.equals("2")){
-//					respContent = "ÕıÔÚ²éÑ¯È«Çò48Ğ¡Ê±ÄÚµÄµØÕğĞÅÏ¢";
+//					respContent = "æ­£åœ¨æŸ¥è¯¢å…¨çƒ48å°æ—¶å†…çš„åœ°éœ‡ä¿¡æ¯";
 //				}else if(content.equals("3")){
-//					respContent = "ÕıÔÚ²éÑ¯È«ÇòµØÕğĞÅÏ¢";
+//					respContent = "æ­£åœ¨æŸ¥è¯¢å…¨çƒåœ°éœ‡ä¿¡æ¯";
 //				}else if(content.equals("4")){
-//					respContent = "ÕıÔÚ²éÑ¯ÖĞ¹úµØÕğĞÅÏ¢";
+//					respContent = "æ­£åœ¨æŸ¥è¯¢ä¸­å›½åœ°éœ‡ä¿¡æ¯";
 //				}else if(content.equals("5")){
-//					respContent = "ÕıÔÚ²éÑ¯Õã½­µØÕğĞÅÏ¢";
+//					respContent = "æ­£åœ¨æŸ¥è¯¢æµ™æ±Ÿåœ°éœ‡ä¿¡æ¯";
 //				}else if(content.equals("0")){
 //					respContent = session.getAttribute("menu").toString();
 //				}
 			}
-			// Í¼Æ¬ÏûÏ¢
+			// å›¾ç‰‡æ¶ˆæ¯
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_IMAGE)) {
-				respContent = "Äú·¢ËÍµÄÊÇÍ¼Æ¬ÏûÏ¢£¡";
+				respContent = "æ‚¨å‘é€çš„æ˜¯å›¾ç‰‡æ¶ˆæ¯ï¼";
 			}
-			// µØÀíÎ»ÖÃÏûÏ¢
+			// åœ°ç†ä½ç½®æ¶ˆæ¯
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_LOCATION)) {
-				respContent = "Äú·¢ËÍµÄÊÇµØÀíÎ»ÖÃÏûÏ¢£¡";
+				respContent = "æ‚¨å‘é€çš„æ˜¯åœ°ç†ä½ç½®æ¶ˆæ¯ï¼";
 			}
-			// Á´½ÓÏûÏ¢
+			// é“¾æ¥æ¶ˆæ¯
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_LINK)) {
-				respContent = "Äú·¢ËÍµÄÊÇÁ´½ÓÏûÏ¢£¡";
+				respContent = "æ‚¨å‘é€çš„æ˜¯é“¾æ¥æ¶ˆæ¯ï¼";
 			}
-			// ÒôÆµÏûÏ¢
+			// éŸ³é¢‘æ¶ˆæ¯
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_VOICE)) {
-				respContent = "Äú·¢ËÍµÄÊÇÒôÆµÏûÏ¢£¡";
+				respContent = "æ‚¨å‘é€çš„æ˜¯éŸ³é¢‘æ¶ˆæ¯ï¼";
 			}
-			// ÊÂ¼şÍÆËÍ
+			// äº‹ä»¶æ¨é€
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_EVENT)) {
-				// ÊÂ¼şÀàĞÍ
+				// äº‹ä»¶ç±»å‹
 				String eventType = requestMap.get("Event");
-				// ¶©ÔÄ
+				// è®¢é˜…
 				if (eventType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {
 					respContent = session.getAttribute("menu").toString();
 				}
-				// È¡Ïû¶©ÔÄ
+				// å–æ¶ˆè®¢é˜…
 				else if (eventType.equals(MessageUtil.EVENT_TYPE_UNSUBSCRIBE)) {
-					// TODO È¡Ïû¶©ÔÄºóÓÃ»§ÔÙÊÕ²»µ½¹«ÖÚºÅ·¢ËÍµÄÏûÏ¢£¬Òò´Ë²»ĞèÒª»Ø¸´ÏûÏ¢
+					// TODO å–æ¶ˆè®¢é˜…åç”¨æˆ·å†æ”¶ä¸åˆ°å…¬ä¼—å·å‘é€çš„æ¶ˆæ¯ï¼Œå› æ­¤ä¸éœ€è¦å›å¤æ¶ˆæ¯
 				}
-				// ×Ô¶¨Òå²Ëµ¥µã»÷ÊÂ¼ş
+				// è‡ªå®šä¹‰èœå•ç‚¹å‡»äº‹ä»¶
 				else if (eventType.equals(MessageUtil.EVENT_TYPE_CLICK)) {
-					// TODO ×Ô¶¨Òå²Ëµ¥È¨Ã»ÓĞ¿ª·Å£¬Ôİ²»´¦Àí¸ÃÀàÏûÏ¢
+					// TODO è‡ªå®šä¹‰èœå•æƒæ²¡æœ‰å¼€æ”¾ï¼Œæš‚ä¸å¤„ç†è¯¥ç±»æ¶ˆæ¯
 				}
 			}
 
@@ -322,7 +322,7 @@ public class CoreService {
 	}
 	
 	/**
-	 * emoji±íÇé×ª»»(hex -> utf-16)
+	 * emojiè¡¨æƒ…è½¬æ¢(hex -> utf-16)
 	 * 
 	 * @param hexEmoji
 	 * @return

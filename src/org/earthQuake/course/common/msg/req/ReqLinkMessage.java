@@ -1,17 +1,17 @@
 package org.earthQuake.course.common.msg.req;
 
 /**
- * 链接消息
+ * 閾炬帴娑堟伅
  * 
  * @author xuxiaoliang
  * @date 2014-01-06
  */
 public class ReqLinkMessage extends ReqBaseMessage {
-	// 消息标题
+	// 娑堟伅鏍囬
 	private String Title;
-	// 消息描述
+	// 娑堟伅鎻忚堪
 	private String Description;
-	// 消息链接
+	// 娑堟伅閾炬帴
 	private String Url;
 
 	public String getTitle() {

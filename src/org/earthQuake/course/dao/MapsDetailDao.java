@@ -7,25 +7,25 @@ import org.earthQuake.course.common.bean.MapsDetail;
 public interface MapsDetailDao {
 
 	/**
-	 * 得到地震图片信息
+	 * 寰楀埌鍦伴渿鍥剧墖淇℃伅
 	 * @return
 	 */
 	public List<MapsDetail> getMaps();
 	
 	/**
-	 * 修改地震图片信息
+	 * 淇敼鍦伴渿鍥剧墖淇℃伅
 	 * @return
 	 */
 	public int updateMaps();
 	
 	/**
-	 * 删除地震图片信息
+	 * 鍒犻櫎鍦伴渿鍥剧墖淇℃伅
 	 * @return
 	 */
 	public int deleteMaps();
 	
 	/**
-	 * 增加地震图片信息
+	 * 澧炲姞鍦伴渿鍥剧墖淇℃伅
 	 * @return
 	 */
 	public int addMaps();
