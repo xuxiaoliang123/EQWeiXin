@@ -1,7 +1,7 @@
 package org.earthQuake.course.common.bean;
 
 /**
- * ²Ëµ¥»ùÀà
+ * èœå•åŸºç±»
  * 
  * @author xuxiaoliang
  * @date 2014-01-14
@@ -10,23 +10,32 @@ package org.earthQuake.course.common.bean;
 public class TabMenuDetail implements java.io.Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	//²Ëµ¥ID
+	//èœå•ID
 	private int menuId;
-	//²Ëµ¥ËµÃ÷
+	//èœå•è¯´æ˜
 	private String menuexplain;
-	//²Ëµ¥ÄÚÈİ
+	//èœå•å†…å®¹
 	private String menuContent;
+	//èœå•é¡¹æ˜¯å¦å¯ç”¨çš„çŠ¶æ€
+	private int status;
 	
 	/** default constructor */
 	public TabMenuDetail() {
 	}
 
-	/** full constructor */
-	public TabMenuDetail(int menuId, String menuexplain, String menuContent) {
-		super();
+	/**
+	 * full constructor
+	 * @param menuId
+	 * @param menuexplain
+	 * @param menuContent
+	 * @param status
+	 */
+	public TabMenuDetail(int menuId, String menuexplain, String menuContent,
+			int status) {
 		this.menuId = menuId;
 		this.menuexplain = menuexplain;
 		this.menuContent = menuContent;
+		this.status = status;
 	}
 
 	public String getMenuexplain() {
@@ -49,4 +58,13 @@ public class TabMenuDetail implements java.io.Serializable{
 	public void setMenuContent(String menuContent) {
 		this.menuContent = menuContent;
 	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	
 }

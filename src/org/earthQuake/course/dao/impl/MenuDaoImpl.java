@@ -14,12 +14,12 @@ public class MenuDaoImpl extends BaseDao implements MenuDao{
 
 	public Logger log = LoggerFactory.getLogger(MenuDaoImpl.class);
 	/**
-	 * µÃµ½²Ëµ¥
+	 * å¾—åˆ°èœå•
 	 * @return
 	 */
 	public List<TabMenuDetail> getMenus() {
 		Session session = getSession();
-		Query query = session.createQuery("from TabMenuDetail");
+		Query query = session.createQuery("from TabMenuDetail order by menuid");
 		List<TabMenuDetail> list = query.list();
 		close(session);
 		return list;

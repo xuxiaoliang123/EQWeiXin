@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class EarthQuakeUtil {
 	/**
-	 * ¼ÆËã²ÉÓÃutf-8±àÂë·½Ê½Ê±×Ö·û´®ËùÕ¼×Ö½ÚÊı
+	 * è®¡ç®—é‡‡ç”¨utf-8ç¼–ç æ–¹å¼æ—¶å­—ç¬¦ä¸²æ‰€å å­—èŠ‚æ•°
 	 * 
 	 * @param content
 	 * @return
@@ -15,7 +15,7 @@ public class EarthQuakeUtil {
 		int size = 0;
 		if (null != content) {
 			try {
-				// ºº×Ö²ÉÓÃutf-8±àÂëÊ±Õ¼3¸ö×Ö½Ú
+				// æ±‰å­—é‡‡ç”¨utf-8ç¼–ç æ—¶å 3ä¸ªå­—èŠ‚
 				size = content.getBytes("utf-8").length;
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
@@ -25,7 +25,7 @@ public class EarthQuakeUtil {
 	}
 	
 	/**
-	 * ÅĞ¶ÏÊÇ·ñÊÇQQ±íÇé
+	 * åˆ¤æ–­æ˜¯å¦æ˜¯QQè¡¨æƒ…
 	 * 
 	 * @param content
 	 * @return
@@ -33,7 +33,7 @@ public class EarthQuakeUtil {
 	public static boolean isQqFace(String content) {
 		boolean result = false;
 
-		// ÅĞ¶ÏQQ±íÇéµÄÕıÔò±í´ïÊ½
+		// åˆ¤æ–­QQè¡¨æƒ…çš„æ­£åˆ™è¡¨è¾¾å¼
 		String qqfaceRegex = "/::\\)|/::~|/::B|/::\\||/:8-\\)|/::<|/::$|/::X|/::Z|" +
 				"/::'\\(|/::-\\||/::@|/::P|/::D|/::O|/::\\(|/::\\+|/:--b|/::Q|/::T|" +
 				"/:,@P|/:,@-D|/::d|/:,@o|/::g|/:\\|-\\)|/::!|/::L|/::>|/::,@|/:,@f|" +

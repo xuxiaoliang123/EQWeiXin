@@ -1,13 +1,10 @@
 package org.earthQuake.test;
 
 import java.util.List;
-
 import org.earthQuake.course.common.bean.TabMenuDetail;
 import org.earthQuake.course.dao.impl.MenuDaoImpl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.support.ResourcePatternResolver;
 
 public class TestDao {
 
@@ -29,13 +26,13 @@ public class TestDao {
 //        		sbf.append(menu.getMenuContent());
 //        	}
 //        }
-		//spring 测试
+		//spring 娴嬭瘯
 		ApplicationContext act=new FileSystemXmlApplicationContext("classpath:applicationContext.xml");
-		MenuDaoImpl MenuDaoImpl=(MenuDaoImpl)act.getBean("menuDao"); //这里放你spring配置文件中的配置的类的id
+		MenuDaoImpl MenuDaoImpl=(MenuDaoImpl)act.getBean("menuDao"); //杩欓噷鏀句綘spring閰嶇疆鏂囦欢涓殑閰嶇疆鐨勭被鐨刬d
 		List<TabMenuDetail> menu = MenuDaoImpl.getMenus();
 		TabMenuDetail m = menu.get(1);
 		System.out.println(m.getMenuContent());
-		//hibernate测试
+		//hibernate娴嬭瘯
 //		Configuration cfg = new Configuration().configure();
 //		  SchemaExport se = new SchemaExport(cfg);
 //		  se.create(true, true);

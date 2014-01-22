@@ -37,6 +37,7 @@
                <property name="mappingResources">
                    <list>
                        <value>org/earthQuake/course/common/bean/TabMenuDetail.hbm.xml</value>
+                       <value>org/earthQuake/course/common/bean/MapsDetail.hbm.xml</value>
                    </list>
                </property>
            </bean>
@@ -46,9 +47,19 @@
                    <ref bean="sessionFactory" />
                </property>
            </bean>
+           <bean id="mapsDetailDao" class="org.earthQuake.course.dao.impl.MapsDetailDaoImpl">
+               <property name="sessionFactory">
+                   <ref bean="sessionFactory" />
+               </property>
+           </bean>
            <bean id="menuService" class="org.earthQuake.course.serviceImpl.MenuServiceImpl">
                <property name="menuDao">
                    <ref bean="menuDao" />
+               </property>
+           </bean>
+           <bean id="MapsDetailService" class="org.earthQuake.course.serviceImpl.MapsDetailServiceImpl">
+               <property name="mapsDetailDao">
+                   <ref bean="mapsDetailDao" />
                </property>
            </bean>
 </beans>

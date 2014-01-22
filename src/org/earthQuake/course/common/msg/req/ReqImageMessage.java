@@ -1,13 +1,13 @@
 package org.earthQuake.course.common.msg.req;
 
 /**
- * ͼƬ��Ϣ
+ * 图片消息
  * 
  * @author xuxiaoliang
  * @date 2014-01-06
  */
 public class ReqImageMessage extends ReqBaseMessage {
-	// ͼƬ����
+	// 图片链接
 	private String PicUrl;
 
 	public String getPicUrl() {

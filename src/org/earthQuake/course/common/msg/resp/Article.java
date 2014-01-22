@@ -1,19 +1,19 @@
 package org.earthQuake.course.common.msg.resp;
 
 /**
- * Í¼ÎÄmodel
+ * å›¾æ–‡model
  * 
  * @author xuxiaoliang
  * @date 2014-01-06
  */
 public class Article {
-	// Í¼ÎÄÏûÏ¢Ãû³Æ
+	// å›¾æ–‡æ¶ˆæ¯åç§°
 	private String Title;
-	// Í¼ÎÄÏûÏ¢ÃèÊö
+	// å›¾æ–‡æ¶ˆæ¯æè¿°
 	private String Description;
-	// Í¼Æ¬Á´½Ó£¬Ö§³ÖJPG¡¢PNG¸ñÊ½£¬½ÏºÃµÄĞ§¹ûÎª´óÍ¼640*320£¬Ğ¡Í¼80*80£¬ÏŞÖÆÍ¼Æ¬Á´½ÓµÄÓòÃûĞèÒªÓë¿ª·¢ÕßÌîĞ´µÄ»ù±¾×ÊÁÏÖĞµÄUrlÒ»ÖÂ
+	// å›¾ç‰‡é“¾æ¥ï¼Œæ”¯æŒJPGã€PNGæ ¼å¼ï¼Œè¾ƒå¥½çš„æ•ˆæœä¸ºå¤§å›¾640*320ï¼Œå°å›¾80*80ï¼Œé™åˆ¶å›¾ç‰‡é“¾æ¥çš„åŸŸåéœ€è¦ä¸å¼€å‘è€…å¡«å†™çš„åŸºæœ¬èµ„æ–™ä¸­çš„Urlä¸€è‡´
 	private String PicUrl;
-	// µã»÷Í¼ÎÄÏûÏ¢Ìø×ªÁ´½Ó
+	// ç‚¹å‡»å›¾æ–‡æ¶ˆæ¯è·³è½¬é“¾æ¥
 	private String Url;
 
 	public String getTitle() {

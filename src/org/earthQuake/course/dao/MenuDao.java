@@ -6,19 +6,19 @@ import org.earthQuake.course.common.bean.TabMenuDetail;
 
 public interface MenuDao {
 	/**
-	 * 得到菜单
+	 * 寰楀埌鑿滃崟
 	 * @return
 	 */
 	public List<TabMenuDetail> getMenus();
 	
 	/**
-	 * 修改菜单
+	 * 淇敼鑿滃崟
 	 * @return
 	 */
 	public int updateMenus();
 	
 	/**
-	 * 删除菜单
+	 * 鍒犻櫎鑿滃崟
 	 * @return
 	 */
 	public int deleteMenu();

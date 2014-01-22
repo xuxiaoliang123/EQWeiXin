@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.earthQuake.course.common.bean.TabMenuDetail;
-import org.earthQuake.course.dao.impl.MenuDaoImpl;
 import org.earthQuake.course.service.CoreService;
 import org.earthQuake.course.service.MenuService;
 import org.earthQuake.course.serviceImpl.MenuServiceImpl;
@@ -20,7 +19,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 /**
- * ºËĞÄÇëÇó´¦ÀíÀà
+ * æ ¸å¿ƒè¯·æ±‚å¤„ç†ç±»
  * 
  * @author xuxiaoliang
  * @date 2014-1-5
@@ -29,20 +28,20 @@ public class CoreServlet extends HttpServlet {
 	private static final long serialVersionUID = 4440739483644821986L;
 
 	/**
-	 * È·ÈÏÇëÇóÀ´×ÔÎ¢ĞÅ·şÎñÆ÷
+	 * ç¡®è®¤è¯·æ±‚æ¥è‡ªå¾®ä¿¡æœåŠ¡å™¨
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Î¢ĞÅ¼ÓÃÜÇ©Ãû
+		// å¾®ä¿¡åŠ å¯†ç­¾å
 		String signature = request.getParameter("signature");
-		// Ê±¼ä´Á
+		// æ—¶é—´æˆ³
 		String timestamp = request.getParameter("timestamp");
-		// Ëæ»úÊı
+		// éšæœºæ•°
 		String nonce = request.getParameter("nonce");
-		// Ëæ»ú×Ö·û´®
+		// éšæœºå­—ç¬¦ä¸²
 		String echostr = request.getParameter("echostr");
 		
 		PrintWriter out = response.getWriter();
-		// Í¨¹ı¼ìÑésignature¶ÔÇëÇó½øĞĞĞ£Ñé£¬ÈôĞ£Ñé³É¹¦ÔòÔ­Ñù·µ»Øechostr£¬±íÊ¾½ÓÈë³É¹¦£¬·ñÔò½ÓÈëÊ§°Ü
+		// é€šè¿‡æ£€éªŒsignatureå¯¹è¯·æ±‚è¿›è¡Œæ ¡éªŒï¼Œè‹¥æ ¡éªŒæˆåŠŸåˆ™åŸæ ·è¿”å›echostrï¼Œè¡¨ç¤ºæ¥å…¥æˆåŠŸï¼Œå¦åˆ™æ¥å…¥å¤±è´¥
 		if (SignUtil.checkSignature(signature, timestamp, nonce)) {
 			out.print(echostr);
 		}
@@ -51,34 +50,43 @@ public class CoreServlet extends HttpServlet {
 	}
 
 	/**
-	 * ´¦ÀíÎ¢ĞÅ·şÎñÆ÷·¢À´µÄÏûÏ¢
+	 * å¤„ç†å¾®ä¿¡æœåŠ¡å™¨å‘æ¥çš„æ¶ˆæ¯
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO ÏûÏ¢µÄ½ÓÊÕ¡¢´¦Àí¡¢ÏìÓ¦
-		// ½«ÇëÇó¡¢ÏìÓ¦µÄ±àÂë¾ùÉèÖÃÎªUTF-8£¨·ÀÖ¹ÖĞÎÄÂÒÂë£©  
+		// TODO æ¶ˆæ¯çš„æ¥æ”¶ã€å¤„ç†ã€å“åº”
+		// å°†è¯·æ±‚ã€å“åº”çš„ç¼–ç å‡è®¾ç½®ä¸ºUTF-8ï¼ˆé˜²æ­¢ä¸­æ–‡ä¹±ç ï¼‰  
         request.setCharacterEncoding("UTF-8");  
-        response.setCharacterEncoding("UTF-8");  
-        //µÃµ½²Ëµ¥
-        ApplicationContext act=new FileSystemXmlApplicationContext("classpath:applicationContext.xml");
-        MenuService menuService=(MenuServiceImpl)act.getBean("menuService");
-        List<TabMenuDetail> list = menuService.getMenus();
+        response.setCharacterEncoding("UTF-8"); 
+        
+        
+        //å¾—åˆ°èœå•
         int i;
         StringBuffer sbf = new StringBuffer();
-        for(i = 0; i < list.size(); i++){
-        	TabMenuDetail menu = (TabMenuDetail)list.get(i);
-        	if(null != menu.getMenuexplain()){
-        		sbf.append(menu.getMenuexplain()).append("\n");
-        	}else{
-        		sbf.append(menu.getMenuContent()).append("\n");
-        	}
+        
+        HttpSession session = request.getSession();
+        if(null == session.getAttribute("menu")){
+        	ApplicationContext act=new FileSystemXmlApplicationContext("classpath:applicationContext.xml");
+            MenuService menuService=(MenuServiceImpl)act.getBean("menuService");
+            List<TabMenuDetail> list = menuService.getMenus();
+            
+            for(i = 0; i < list.size(); i++){
+            	TabMenuDetail menu = (TabMenuDetail)list.get(i);
+            	if(null != menu.getMenuexplain()){
+            		sbf.append(menu.getMenuexplain()).append("\n");
+            	}else{
+            		sbf.append(menu.getMenuContent()).append("\n");
+            	}
+            }
+            session.setAttribute("menu", sbf.toString());
         }
+        
 //        String resourceFile = "org.earthQuake.course.properties.MenuProperties_zh_CN";
 //        ResourceBundle resource = ResourceBundle.getBundle(resourceFile);
 //        
 //        StringBuffer sbf = new StringBuffer();
 //        sbf.append(resource.getString("menuexplain"));
 //        
-//        //È¡µÃËùÓĞ²Ëµ¥Ïî
+//        //å–å¾—æ‰€æœ‰èœå•é¡¹
 //        Enumeration <String>enu = resource.getKeys();
 //        while(enu.hasMoreElements()) {
 //        	if(!enu.nextElement().equals("menuexplain")){
@@ -86,15 +94,11 @@ public class CoreServlet extends HttpServlet {
 //        	}
 //        }
         
-        HttpSession session = request.getSession();
-        if(null == session.getAttribute("menu")){
-        	session.setAttribute("menu", sbf.toString());
-        }
         
-        // µ÷ÓÃºËĞÄÒµÎñÀà½ÓÊÕÏûÏ¢¡¢´¦ÀíÏûÏ¢  
+        // è°ƒç”¨æ ¸å¿ƒä¸šåŠ¡ç±»æ¥æ”¶æ¶ˆæ¯ã€å¤„ç†æ¶ˆæ¯  
         String respMessage = CoreService.processRequest(request);  
           
-        // ÏìÓ¦ÏûÏ¢  
+        // å“åº”æ¶ˆæ¯  
         PrintWriter out = response.getWriter();  
         out.print(respMessage);  
         out.close();  

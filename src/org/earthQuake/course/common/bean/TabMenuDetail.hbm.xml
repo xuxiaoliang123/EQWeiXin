@@ -17,5 +17,8 @@
         <property name="menuContent" type="java.lang.String">
             <column name="MENUCONTENT" length="100" />
         </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="STATUS" length="1" />
+        </property>
     </class>
 </hibernate-mapping>

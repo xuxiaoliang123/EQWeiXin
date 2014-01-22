@@ -1,16 +1,11 @@
 package org.earthQuake.course.common;
 
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
@@ -18,7 +13,6 @@ import org.earthQuake.course.common.msg.resp.Article;
 import org.earthQuake.course.common.msg.resp.RespMusicMessage;
 import org.earthQuake.course.common.msg.resp.RespNewsMessage;
 import org.earthQuake.course.common.msg.resp.RespTextMessage;
-
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.core.util.QuickWriter;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
@@ -26,7 +20,7 @@ import com.thoughtworks.xstream.io.xml.PrettyPrintWriter;
 import com.thoughtworks.xstream.io.xml.XppDriver;
 
 /** 
- * ÏûÏ¢¹¤¾ßÀà 
+ * æ¶ˆæ¯å·¥å…·ç±» 
  *  
  * @author xuxiaoliang 
  * @date 2014-01-06 
@@ -34,67 +28,67 @@ import com.thoughtworks.xstream.io.xml.XppDriver;
 public class MessageUtil {
 	
 	/** 
-     * ·µ»ØÏûÏ¢ÀàĞÍ£ºÎÄ±¾ 
+     * è¿”å›æ¶ˆæ¯ç±»å‹ï¼šæ–‡æœ¬ 
      */  
     public static final String RESP_MESSAGE_TYPE_TEXT = "text";  
   
     /** 
-     * ·µ»ØÏûÏ¢ÀàĞÍ£ºÒôÀÖ 
+     * è¿”å›æ¶ˆæ¯ç±»å‹ï¼šéŸ³ä¹ 
      */  
     public static final String RESP_MESSAGE_TYPE_MUSIC = "music";  
   
     /** 
-     * ·µ»ØÏûÏ¢ÀàĞÍ£ºÍ¼ÎÄ 
+     * è¿”å›æ¶ˆæ¯ç±»å‹ï¼šå›¾æ–‡ 
      */  
     public static final String RESP_MESSAGE_TYPE_NEWS = "news";  
   
     /** 
-     * ÇëÇóÏûÏ¢ÀàĞÍ£ºÎÄ±¾ 
+     * è¯·æ±‚æ¶ˆæ¯ç±»å‹ï¼šæ–‡æœ¬ 
      */  
     public static final String REQ_MESSAGE_TYPE_TEXT = "text";  
   
     /** 
-     * ÇëÇóÏûÏ¢ÀàĞÍ£ºÍ¼Æ¬ 
+     * è¯·æ±‚æ¶ˆæ¯ç±»å‹ï¼šå›¾ç‰‡ 
      */  
     public static final String REQ_MESSAGE_TYPE_IMAGE = "image";  
   
     /** 
-     * ÇëÇóÏûÏ¢ÀàĞÍ£ºÁ´½Ó 
+     * è¯·æ±‚æ¶ˆæ¯ç±»å‹ï¼šé“¾æ¥ 
      */  
     public static final String REQ_MESSAGE_TYPE_LINK = "link";  
   
     /** 
-     * ÇëÇóÏûÏ¢ÀàĞÍ£ºµØÀíÎ»ÖÃ 
+     * è¯·æ±‚æ¶ˆæ¯ç±»å‹ï¼šåœ°ç†ä½ç½® 
      */  
     public static final String REQ_MESSAGE_TYPE_LOCATION = "location";  
   
     /** 
-     * ÇëÇóÏûÏ¢ÀàĞÍ£ºÒôÆµ 
+     * è¯·æ±‚æ¶ˆæ¯ç±»å‹ï¼šéŸ³é¢‘ 
      */  
     public static final String REQ_MESSAGE_TYPE_VOICE = "voice";  
   
     /** 
-     * ÇëÇóÏûÏ¢ÀàĞÍ£ºÍÆËÍ 
+     * è¯·æ±‚æ¶ˆæ¯ç±»å‹ï¼šæ¨é€ 
      */  
     public static final String REQ_MESSAGE_TYPE_EVENT = "event";  
   
     /** 
-     * ÊÂ¼şÀàĞÍ£ºsubscribe(¶©ÔÄ) 
+     * äº‹ä»¶ç±»å‹ï¼šsubscribe(è®¢é˜…) 
      */  
     public static final String EVENT_TYPE_SUBSCRIBE = "subscribe";  
   
     /** 
-     * ÊÂ¼şÀàĞÍ£ºunsubscribe(È¡Ïû¶©ÔÄ) 
+     * äº‹ä»¶ç±»å‹ï¼šunsubscribe(å–æ¶ˆè®¢é˜…) 
      */  
     public static final String EVENT_TYPE_UNSUBSCRIBE = "unsubscribe";  
   
     /** 
-     * ÊÂ¼şÀàĞÍ£ºCLICK(×Ô¶¨Òå²Ëµ¥µã»÷ÊÂ¼ş) 
+     * äº‹ä»¶ç±»å‹ï¼šCLICK(è‡ªå®šä¹‰èœå•ç‚¹å‡»äº‹ä»¶) 
      */  
     public static final String EVENT_TYPE_CLICK = "CLICK";  
 	
 	/**
-	 * ½âÎöÎ¢ĞÅ·¢À´µÄÇëÇó£¨XML£©
+	 * è§£æå¾®ä¿¡å‘æ¥çš„è¯·æ±‚ï¼ˆXMLï¼‰
 	 * 
 	 * @param request
 	 * @return
@@ -102,24 +96,24 @@ public class MessageUtil {
 	 */
 	@SuppressWarnings("unchecked")
 	public static Map<String, String> parseXml(HttpServletRequest request) throws Exception {
-		// ½«½âÎö½á¹û´æ´¢ÔÚHashMapÖĞ
+		// å°†è§£æç»“æœå­˜å‚¨åœ¨HashMapä¸­
 		Map<String, String> map = new HashMap<String, String>();
 
-		// ´ÓrequestÖĞÈ¡µÃÊäÈëÁ÷
+		// ä»requestä¸­å–å¾—è¾“å…¥æµ
 		InputStream inputStream = request.getInputStream();
-		// ¶ÁÈ¡ÊäÈëÁ÷
+		// è¯»å–è¾“å…¥æµ
 		SAXReader reader = new SAXReader();
 		Document document = reader.read(inputStream);
-		// µÃµ½xml¸ùÔªËØ
+		// å¾—åˆ°xmlæ ¹å…ƒç´ 
 		Element root = document.getRootElement();
-		// µÃµ½¸ùÔªËØµÄËùÓĞ×Ó½Úµã
+		// å¾—åˆ°æ ¹å…ƒç´ çš„æ‰€æœ‰å­èŠ‚ç‚¹
 		List<Element> elementList = root.elements();
 
-		// ±éÀúËùÓĞ×Ó½Úµã
+		// éå†æ‰€æœ‰å­èŠ‚ç‚¹
 		for (Element e : elementList)
 			map.put(e.getName(), e.getText());
 
-		// ÊÍ·Å×ÊÔ´
+		// é‡Šæ”¾èµ„æº
 		inputStream.close();
 		inputStream = null;
 
@@ -127,9 +121,9 @@ public class MessageUtil {
 	}
 	
 	/**
-	 * ÎÄ±¾ÏûÏ¢¶ÔÏó×ª»»³Éxml
+	 * æ–‡æœ¬æ¶ˆæ¯å¯¹è±¡è½¬æ¢æˆxml
 	 * 
-	 * @param textMessage ÎÄ±¾ÏûÏ¢¶ÔÏó
+	 * @param textMessage æ–‡æœ¬æ¶ˆæ¯å¯¹è±¡
 	 * @return xml
 	 */
 	public static String textMessageToXml(RespTextMessage textMessage) {
@@ -138,9 +132,9 @@ public class MessageUtil {
 	}
 
 	/**
-	 * ÒôÀÖÏûÏ¢¶ÔÏó×ª»»³Éxml
+	 * éŸ³ä¹æ¶ˆæ¯å¯¹è±¡è½¬æ¢æˆxml
 	 * 
-	 * @param musicMessage ÒôÀÖÏûÏ¢¶ÔÏó
+	 * @param musicMessage éŸ³ä¹æ¶ˆæ¯å¯¹è±¡
 	 * @return xml
 	 */
 	public static String musicMessageToXml(RespMusicMessage musicMessage) {
@@ -149,9 +143,9 @@ public class MessageUtil {
 	}
 
 	/**
-	 * Í¼ÎÄÏûÏ¢¶ÔÏó×ª»»³Éxml
+	 * å›¾æ–‡æ¶ˆæ¯å¯¹è±¡è½¬æ¢æˆxml
 	 * 
-	 * @param newsMessage Í¼ÎÄÏûÏ¢¶ÔÏó
+	 * @param newsMessage å›¾æ–‡æ¶ˆæ¯å¯¹è±¡
 	 * @return xml
 	 */
 	public static String newsMessageToXml(RespNewsMessage newsMessage) {
@@ -161,14 +155,14 @@ public class MessageUtil {
 	}
 
 	/**
-	 * À©Õ¹xstream£¬Ê¹ÆäÖ§³ÖCDATA¿é
+	 * æ‰©å±•xstreamï¼Œä½¿å…¶æ”¯æŒCDATAå—
 	 * 
 	 * @date 2014-01-06
 	 */
 	private static XStream xstream = new XStream(new XppDriver() {
 		public HierarchicalStreamWriter createWriter(Writer out) {
 			return new PrettyPrintWriter(out) {
-				// ¶ÔËùÓĞxml½ÚµãµÄ×ª»»¶¼Ôö¼ÓCDATA±ê¼Ç
+				// å¯¹æ‰€æœ‰xmlèŠ‚ç‚¹çš„è½¬æ¢éƒ½å¢åŠ CDATAæ ‡è®°
 				boolean cdata = true;
 
 				@SuppressWarnings("unchecked")

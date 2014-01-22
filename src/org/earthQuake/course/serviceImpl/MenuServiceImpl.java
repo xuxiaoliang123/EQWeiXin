@@ -18,7 +18,7 @@ public class MenuServiceImpl implements MenuService{
 	}
 
 	/**
-	 * 修改菜单
+	 * 淇敼鑿滃崟
 	 * @return
 	 */
 	public int updateMenus(){
@@ -26,7 +26,7 @@ public class MenuServiceImpl implements MenuService{
 	}
 	
 	/**
-	 * 删除菜单
+	 * 鍒犻櫎鑿滃崟
 	 * @return
 	 */
 	public int deleteMenu(){
@@ -34,7 +34,7 @@ public class MenuServiceImpl implements MenuService{
 	}
 	
 	/**
-	 * 得到菜单
+	 * 寰楀埌鑿滃崟
 	 * @return
 	 */
 	public List<TabMenuDetail> getMenus(){

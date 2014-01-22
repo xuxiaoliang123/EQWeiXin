@@ -1,19 +1,19 @@
 package org.earthQuake.course.common.msg.resp;
 
 /**
- * ÒôÀÖmodel
+ * éŸ³ä¹model
  * 
  * @author xuxiaoliang
  * @date 2014-01-06
  */
 public class Music {
-	// ÒôÀÖÃû³Æ
+	// éŸ³ä¹åç§°
 	private String Title;
-	// ÒôÀÖÃèÊö
+	// éŸ³ä¹æè¿°
 	private String Description;
-	// ÒôÀÖÁ´½Ó
+	// éŸ³ä¹é“¾æ¥
 	private String MusicUrl;
-	// ¸ßÖÊÁ¿ÒôÀÖÁ´½Ó£¬WIFI»·¾³ÓÅÏÈÊ¹ÓÃ¸ÃÁ´½Ó²¥·ÅÒôÀÖ
+	// é«˜è´¨é‡éŸ³ä¹é“¾æ¥ï¼ŒWIFIç¯å¢ƒä¼˜å…ˆä½¿ç”¨è¯¥é“¾æ¥æ’­æ”¾éŸ³ä¹
 	private String HQMusicUrl;
 
 	public String getTitle() {

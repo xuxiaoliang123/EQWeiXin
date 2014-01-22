@@ -1,15 +1,15 @@
 package org.earthQuake.course.common.msg.req;
 
 /**
- * 音频消息
+ * 闊抽娑堟伅
  * 
  * @author xuxiaoliang
  * @date 2014-01-06
  */
 public class ReqVoiceMessage extends ReqBaseMessage {
-	// 媒体ID
+	// 濯掍綋ID
 	private String MediaId;
-	// 语音格式
+	// 璇煶鏍煎紡
 	private String Format;
 
 	public String getMediaId() {
