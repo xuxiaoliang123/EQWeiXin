@@ -57,21 +57,30 @@ public class CoreServlet extends HttpServlet {
 		// TODO 消息的接收、处理、响应
 		// 将请求、响应的编码均设置为UTF-8（防止中文乱码）  
         request.setCharacterEncoding("UTF-8");  
-        response.setCharacterEncoding("UTF-8");  
+        response.setCharacterEncoding("UTF-8"); 
+        
+        
         //得到菜单
-        ApplicationContext act=new FileSystemXmlApplicationContext("classpath:applicationContext.xml");
-        MenuService menuService=(MenuServiceImpl)act.getBean("menuService");
-        List<TabMenuDetail> list = menuService.getMenus();
         int i;
         StringBuffer sbf = new StringBuffer();
-        for(i = 0; i < list.size(); i++){
-        	TabMenuDetail menu = (TabMenuDetail)list.get(i);
-        	if(null != menu.getMenuexplain()){
-        		sbf.append(menu.getMenuexplain()).append("\n");
-        	}else{
-        		sbf.append(menu.getMenuContent()).append("\n");
-        	}
+        
+        HttpSession session = request.getSession();
+        if(null == session.getAttribute("menu")){
+        	ApplicationContext act=new FileSystemXmlApplicationContext("classpath:applicationContext.xml");
+            MenuService menuService=(MenuServiceImpl)act.getBean("menuService");
+            List<TabMenuDetail> list = menuService.getMenus();
+            
+            for(i = 0; i < list.size(); i++){
+            	TabMenuDetail menu = (TabMenuDetail)list.get(i);
+            	if(null != menu.getMenuexplain()){
+            		sbf.append(menu.getMenuexplain()).append("\n");
+            	}else{
+            		sbf.append(menu.getMenuContent()).append("\n");
+            	}
+            }
+            session.setAttribute("menu", sbf.toString());
         }
+        
 //        String resourceFile = "org.earthQuake.course.properties.MenuProperties_zh_CN";
 //        ResourceBundle resource = ResourceBundle.getBundle(resourceFile);
 //        
@@ -86,10 +95,6 @@ public class CoreServlet extends HttpServlet {
 //        	}
 //        }
         
-        HttpSession session = request.getSession();
-        if(null == session.getAttribute("menu")){
-        	session.setAttribute("menu", sbf.toString());
-        }
         
         // 调用核心业务类接收消息、处理消息  
         String respMessage = CoreService.processRequest(request);  

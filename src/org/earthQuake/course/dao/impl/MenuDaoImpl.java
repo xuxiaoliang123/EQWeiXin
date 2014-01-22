@@ -19,7 +19,7 @@ public class MenuDaoImpl extends BaseDao implements MenuDao{
 	 */
 	public List<TabMenuDetail> getMenus() {
 		Session session = getSession();
-		Query query = session.createQuery("from TabMenuDetail");
+		Query query = session.createQuery("from TabMenuDetail order by menuid");
 		List<TabMenuDetail> list = query.list();
 		close(session);
 		return list;
